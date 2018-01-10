@@ -1,0 +1,181 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+
+html, body {
+  margin:0;
+  padding: 0;
+  font-family: sans-serif;
+}
+.upper-nav {
+  width: 100%;
+  height: auto;
+}
+#new {
+  color: black !important;
+}
+.upper-nav a {
+  color: white;
+}
+.upper-nav .navbar-brand {
+  color:white;
+}
+.login-btn {
+  text-align: right;
+}
+.upper-nav #new_poem {
+  color: dimgray;
+}
+.presentation img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.presentation .presentation-txt h1 {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  transform: translate( -50%, -50% );
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 5rem;
+}
+.presentation .presentation-down-button {
+  position: absolute;
+  top: 70%;
+  left: 48%;
+  transform: translate( -50%, -50% );
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 6rem;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: black;
+  opacity: 0.6;
+}
+.presentation .presentation-down h2 {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate( -50%, -50% );
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  font-size: 5rem;
+}
+.poems {
+  max-width: 100%;
+  background: #f9f9f9;
+  padding-top: 100px;
+  max-height: 300%;
+}
+.poems h3 {
+  text-align: center;
+  color:rgb(78, 70, 57);
+  font-size: 7rem;
+  font-family: Amatic SC;
+}
+.melancolico {
+  border-left: solid 5px #6c2a90;
+  margin: 20px 5px;
+}
+.feliz {
+  border-left: solid 5px #76db67;
+  margin: 20px 5px;
+}
+
+.width-input {
+  width: 500px;
+}
+.width-select {
+  width: 150px;
+}
+.upper-nav-color{
+  background-color: #32323C;
+  opacity: 0.8;
+}
+.m-0-left {
+  margin: 0 0 0 12%;
+}
+.m-0-admin {
+  margin: 0 0 0 35%;
+}
+h6 {
+  font-size: 0.9rem;
+}
+.morecontent span {
+  display: none;
+  text-decoration: none;
+}
+
+.morelink {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+}
+.morelink:hover {
+  text-decoration: none;
+  color: #ccc;
+}
+.footer-poems {
+  width: 100%;
+  height: 60px;
+  background-color: #212529;
+  text-align: center;
+  line-height: 30px;
+  color:#fff;
+
+}
+.footer-poems span{
+  margin:0 auto;
+  color:#fff;
+}
+.new-poem {
+  margin: 10% auto;
+  width: 40%;
+}
+
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes pulse {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    transform: scale3d(1.05, 1.05, 1.05);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+  animation-iteration-count: infinite;
+}
+.pensativo {
+            border-left: solid 5px #6c2a90;
+            margin: 20px 5px;
+          }

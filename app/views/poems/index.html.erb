@@ -1,0 +1,49 @@
+  <h1>Poems</h1>
+
+  <section id="poems" class="poems">
+    <section class="container">
+
+      <div class="row justify-content-center">
+        <div class="row">
+          <div class="col">
+            <form action="poems.php" method="get">
+              <input id="search" type="text" name="search" value="" class="form-control width-input" placeholder="Pesquise poemas">
+            </form>
+          </div>
+          <div class="col">
+            <form action="poems.php" method="get">
+              <select class="form-control" id="select-filter" name="category">
+                <option value="" disabled>Filtros</option>
+                <option value="0"  >Todas</option>
+                <option value="1"  >Romântico</option>
+                <option value="2"  >Melancólico</option>
+                <option value="3"  >Divertido</option>
+              </select>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+
+      <% @poems.each do |poem| %>
+      <div class="card d-inline-flex justify-content-center  <%= remove_accents(poem.category.name) %>" style="width: 22rem;min-height:278.083px">
+        <div class="card-body">
+
+          <% if is_user? or is_admin? %>
+          <%= link_to 'Remover', poem_path(poem.id), method: :delete, class: 'btn btn-light m-0-admin' %>
+          <% end %>
+          <% if is_user? or is_admin? %>
+          <%= link_to 'Editar', edit_poem_path(poem.id), class: 'btn btn-light m-0-admin' %>
+          <% end %>
+          <h4 class="card-title"> <%= poem.name %></h4>
+          <h6 class="card-title">- <%= poem.user.name %></h4>
+          <p class="card-text more"> <%= simple_format(poem.content) %> </p>
+        </div>
+      </div>
+      <% end %>
+
+      </section>
+  </section>
+<%= link_to 'New Poem', new_poem_path %>
+<%= javascript_include_tag 'more_text', 'data-turbolinks-track': 'reload' %>

@@ -8,8 +8,12 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
-# Use sqlite3 as the database for Active Record
+# Use mysql2 as the database for Active Record
 gem 'mysql2'
+# Use bootstrap 4
+gem 'bootstrap', '~> 4.0.0.beta2.1'
+# Use Jquery
+gem 'jquery-rails'
 # Use devise to manage accounts
 gem 'devise'
 # Use Puma as the app server

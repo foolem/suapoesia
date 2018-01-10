@@ -1,0 +1,35 @@
+<%= form_with(model: poem, local: true) do |form| %>
+  <% if poem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(poem.errors.count, "error") %> prohibited this poem from being saved:</h2>
+
+      <ul>
+      <% poem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <input type="hidden" id="poem_user" name="poem[user_id]" value="<%= current_user.id %>">
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :poem_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :category %>
+    <% @categories = Category.all %>
+    <%= form.select :category_id, @categories.collect { |c| [c.name, c.id] } %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :poem_content %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
