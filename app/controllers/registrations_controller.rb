@@ -1,9 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
   skip_before_action :require_no_authentication, only: [:new, :create, :cancel]
-  # 0 is for users
-  # 1 is for admin
-  # 2 is for appraiser
-
 
   def new
     @user = User.new
@@ -11,16 +7,16 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     role = sign_up_params[:role]
-    if role == 1
-      if user_signed_in? && current_user.role == 1
+    if role == "admin"
+      if user_signed_in? && current_user.role == "admin"
         create_admin
       else
         respond_to do |format|
           format.html { redirect_to poems_path, notice: 'Você não tem permissão para criar um admin.' }
         end
       end
-    elsif role == 2
-      if user_signed_in? && current_user.role == 1
+    elsif role == "appraiser"
+      if user_signed_in? && current_user.role == "admin"
         create_appraiser
       else
         respond_to do |format|
@@ -28,7 +24,7 @@ class RegistrationsController < Devise::RegistrationsController
         end
       end
     else
-      sign_up_params[:role] = 0
+      sign_up_params[:role] = "user"
       @user =  User.create(sign_up_params)
       respond_to do |format|
         if @user.save
@@ -47,7 +43,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create_admin
-    if current_user.role == 1
+    if user_signed_in? && current_user.role == "admin"
       @user =  User.create(sign_up_params)
       respond_to do |format|
         if @user.save
@@ -66,7 +62,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create_appraiser
-    if current_user.role == 1
+    if user_signed_in? && current_user.role == "admin"
       @user =  User.create(sign_up_params)
       respond_to do |format|
         if @user.save

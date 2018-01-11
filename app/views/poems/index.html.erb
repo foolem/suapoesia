@@ -38,7 +38,7 @@
           <% end %>
           <h4 class="card-title"> <%= poem.name %></h4>
           <h6 class="card-title">- <%= poem.user.name %></h4>
-          <p class="card-text more"> <%= simple_format(poem.content) %> </p>
+          <p class="card-text more"> <%= poem.content.html_safe %> </p>
         </div>
       </div>
       <% end %>
